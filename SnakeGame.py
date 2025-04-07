@@ -1,3 +1,4 @@
+import _tkinter
 import turtle
 import random
 import time
@@ -19,7 +20,7 @@ class SnakeGame:
         # Creación del entorno gráfico
         self.screen = turtle.Screen()
 
-        self.screen.setup(width=self.width, height=self.height, startx=0, starty=0)
+        self.screen.setup(width=self.width, height=self.height, startx=None, starty=None)
         self.screen.title("Juego Snake")
         self.screen.bgcolor("green")
         self.screen.tracer(0)
@@ -112,14 +113,19 @@ class SnakeGame:
 
     def play(self):
         """ Inicio de la partida """
-        while True:
-            self.dead_wall()
-            self.snake_conflict()
-            self.apple_conflict()
-            time.sleep(self._delay)
-            self.move()
-            self.screen.update()
-        self.screen.mainloop()
+        try:
+            while True: # Verifica si la ventana sigue abierta
+                if not self.screen._root or not self.screen.cv:
+                    break  # Sale del bucle si la ventana se ha cerrado
+                self.dead_wall()
+                self.snake_conflict()
+                self.apple_conflict()
+                time.sleep(self._delay)
+                self.move()
+                self.screen.update()
+            self.screen.mainloop()
+        except (turtle.Terminator,_tkinter.TclError):
+            print("Juego cerrado correctamente.")
 
     def dead_wall(self):
         """ Establece los límites de la pantalla """

@@ -1,4 +1,3 @@
-
 # Snake Game
 
 El programa trata de una recreación del videojuego clásico Snake.
@@ -31,7 +30,7 @@ Instalar Python en caso de que no lo tenga:
 
 ## Screenshots
 
-![App Screenshot](snakeStart.png)
+![App Screenshot](Screenshots/snakeStart.png)
 
 
 

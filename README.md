@@ -34,6 +34,6 @@ Instalar Python en caso de que no lo tenga:
 
 
 
-## Tech Stack
+## Desarrollo
 
 Ambos programas presentados se encuentran desarrollados en **Python**, uno en formato .py, y el otro exportado a .exe mediante pyinstaller.
